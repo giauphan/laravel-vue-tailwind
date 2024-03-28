@@ -39,12 +39,6 @@ jobs:
         with:
           node-version: 18.14.1
 
-      - uses: shogo82148/actions-setup-redis@v1
-        with:
-            redis-version: "6.x"
-      - name: Check Redis connection
-        run: redis-cli ping
-
       - name: Install npm dependencies
         run: npm install
 
@@ -53,10 +47,6 @@ jobs:
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
-          REDIS_HOST: 127.0.0.1
-          REDIS_PORT: 6379
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
-          CACHE_DRIVER: redis
-          SESSION_DRIVER: redis
         run: vendor/bin/phpunit
