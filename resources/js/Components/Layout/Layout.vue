@@ -1,6 +1,5 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-
 </script>
 <template>
     <header
@@ -10,14 +9,23 @@ import { Link } from '@inertiajs/vue3';
         </div>
         <div class="flex items-center justify-center gap-5">
             <Link href="/" class="text-white">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/contact">Contact</Link>
+            <Link href="/" class="text-white">About</Link>
+            <Link href="/" class="text-white">Contact</Link>
         </div>
-        <div class="flex gap-3"><button
-                class="border text-white whitespace-nowrap p-2 rounded bg-blue-600 text-lg font-semibold font-['Inter']"><a
-                    href="https://nghiengacha.com/dang-nhap"> Đăng nhập</a></button><button
-                class="text-white bg-[#DEAD47] whitespace-nowrap p-2 rounded hover:opacity-95 text-lg font-semibold font-['Inter']"><a
-                    href="https://nghiengacha.com/dang-ky">Đăng ký</a></button></div>
+        <div class="flex gap-3">
+            <button
+                class="border text-white whitespace-nowrap p-2 rounded bg-blue-600 text-lg font-semibold font-['Inter']">
+                <a :href="route('login')">
+                    Login
+                </a>
+            </button>
+            <button
+                class="text-white bg-[#DEAD47] whitespace-nowrap p-2 rounded hover:opacity-95 text-lg font-semibold font-['Inter']">
+                <a :href="route('register')">
+                    Register 
+                </a>
+            </button>
+        </div>
     </header>
     <main className="min-h-[calc(100vh-89px)]">
         <slot></slot>
