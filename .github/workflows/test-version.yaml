@@ -30,4 +30,6 @@ jobs:
       
         
       - name: Run PHPUnit tests
-        run: ./vendor/bin/phpunit --color=always
+        run: |
+        php artisan key:generate
+        ./vendor/bin/phpunit --color=always
