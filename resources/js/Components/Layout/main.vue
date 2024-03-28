@@ -1,15 +1,15 @@
 <script setup>
-import Layout from './Layout.vue'
+import Layout from "./Layout.vue";
 </script>
 
 <script>
 export default {
-  layout: Layout
-}
+    layout: Layout,
+};
 </script>
 
 <template>
- <Layout>
-<slot></slot>
- </Layout>
+    <Layout>
+        <slot></slot>
+    </Layout>
 </template>

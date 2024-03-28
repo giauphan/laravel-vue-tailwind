@@ -2,6 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "format": "prettier --write \"resources/js/**/*.vue\"",
         "dev": "vite",
         "build": "vite build"
     },
@@ -16,5 +17,8 @@
         "tailwindcss": "^3.2.1",
         "vite": "^5.0",
         "vue": "^3.4.0"
+    },
+    "dependencies": {
+        "prettier": "^3.2.5"
     }
 }

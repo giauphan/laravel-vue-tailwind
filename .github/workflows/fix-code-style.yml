@@ -1,0 +1,49 @@
+name: fix-code-style
+
+on:
+  push:
+
+jobs:
+  fix-code-style:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }}
+          ref: ${{ github.head_ref }}
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21.0.0
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Create Database
+        run: |
+            mkdir -p database
+            touch database/database.sqlite
+      - name: Install dependencies
+        env:
+            DB_CONNECTION: sqlite
+            DB_DATABASE: database/database.sqlite
+        run: |
+            composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Install npm dependencies
+        run: npm install
+      - name: Build assets
+        run: npm run build
+
+      - name: Run Pint
+        run: ./vendor/bin/pint
+      - name: Run Prettier
+        run: npm run format
+      - name: Pull changes
+        run: git pull
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: fix code style'
+          token: ${{ secrets.PAT }}
+          ref: ${{ github.head_ref }}
