@@ -21,7 +21,9 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           coverage: none
-          
+        
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Update Composer dependencies
         run: composer update ${{ matrix.composer-flags }} --no-interaction --no-progress --prefer-dist --ansi
         
