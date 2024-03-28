@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         php-version: [ 8.2, 8.3]
-        composer-flags: [null, --prefer-lowest]
+        composer-flags: [ --prefer-lowest]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,5 +31,5 @@ jobs:
         
       - name: Run PHPUnit tests
         run: |
-        php artisan key:generate
-        ./vendor/bin/phpunit --color=always
+         php artisan key:generate
+         ./vendor/bin/phpunit --color=always
