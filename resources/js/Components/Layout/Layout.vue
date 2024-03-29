@@ -6,12 +6,13 @@ import { Link } from "@inertiajs/vue3";
         class="bg-black sticky top-0 flex items-center justify-between gap-4 border-b border-gray-700 px-2 py-4 sm:px-6 md:px-8 lg:px-20 z-[99999]"
     >
         <div>
-            <a href="/"
-                ><img
+            <a href="/">
+                <img
                     alt="Logo"
                     src=""
                     class="ms-0 md:ms-5 h-auto lg:h-24 w-auto aspect-video"
-            /></a>
+                />
+            </a>
         </div>
         <div class="flex items-center justify-center gap-5">
             <Link href="/" class="text-white">Home</Link>
