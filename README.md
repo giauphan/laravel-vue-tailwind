@@ -22,36 +22,37 @@ This repository contains a starter template for setting up a web application usi
    ```bash
    git clone https://github.com/giauphan/laravel-vue-tailwind
    ```
-   # Navigate into the project directory
+   ## Navigate into the project directory
    ```
     cd laravel-vue-tailwind
    ```
-# Install PHP dependencies
+## Install PHP dependencies
 ```
 composer install
 ```
-# Install JavaScript dependencies
+## Install JavaScript dependencies
 ```
 npm install
 ```
-# Compile assets
+## Compile assets
 ```
 npm run dev
 ```
-# Set up environment variables
+## Set up environment variables
 
-# Duplicate the ``.env.example file and rename it to .env.``
-# Generate an application key
+## Duplicate the ``.env.example file and rename it to .env.``
+
+## Generate an application key
 ```
 php artisan key:generate
 ```
-# Configure your database connection in the .env file.
+## Configure your database connection in the .env file.
 
-# Run migrations (if using a database)
+## Run migrations (if using a database)
 ```
 php artisan migrate
 ```
-# Start the development server
+## Start the development server
 ```
 php artisan serve
 ```
